@@ -58,7 +58,7 @@ const CityCard = (props) => {
               />
             </Col>
             <Col className="d-flex flex-column justify-content-center">
-              <p className="fs-1">{cityInfo.main.temp} °C</p>
+              <p className="fs-1 text-nowrap">{cityInfo.main.temp} °C</p>
             </Col>
           </Row>
           <Card.Body>

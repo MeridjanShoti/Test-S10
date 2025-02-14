@@ -30,11 +30,16 @@ const HomePage = () => {
               <>
                 <h1>{city.name}</h1>
                 <Row>
-                  <Col xs={2}>
+                  <Col xs={1} className="ms-auto">
                     <img src={`https://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`}></img>
                   </Col>
-                  <Col>
+                  <Col xs={3} className="me-auto">
                     <p className="fs-1">{city.weather[0].description}</p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <p>min</p>
                   </Col>
                 </Row>
               </>
