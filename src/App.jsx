@@ -2,10 +2,12 @@ import "./App.css";
 import { BrowserRouter, Link, Route, Routes } from "react-router";
 import HomePage from "./components/HomePage";
 import MyNavBar from "./components/MyNavBar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div
+      className="d-flex flex-column"
       style={{
         background: "linear-gradient(180deg, rgba(107,133,135,1) 0%, rgba(158,247,247,1) 100%)",
         minHeight: "100vh",
@@ -39,6 +41,7 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
+      <Footer />
     </div>
   );
 }
