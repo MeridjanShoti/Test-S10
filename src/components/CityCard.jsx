@@ -21,7 +21,6 @@ const CityCard = (props) => {
       .then((data) => {
         if (data) {
           setCity(data[0]);
-          console.log(data[0]);
         } else {
           setCity(null);
           alert("nessuna città trovata");
@@ -43,7 +42,6 @@ const CityCard = (props) => {
         }
       })
       .catch((error) => console.error("ERRORE:", error));
-    console.log(cityInfo);
   };
   return (
     <>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Spinner } from "react-bootstrap";
+import { Col, Row, Spinner } from "react-bootstrap";
 import { useParams } from "react-router";
 
 const Details = () => {
@@ -31,9 +31,31 @@ const Details = () => {
       {city ? (
         <div className="text-white text-center">
           <h1 className="fw-bold">{city.name}</h1>
-          <h2>{currentDate.toLocaleDateString}</h2>
+          <h2>{currentDate.toLocaleDateString()}</h2>
+          <p>{`${currentDate.getHours()}:${
+            currentDate.getMinutes() < 10
+              ? "0" + currentDate.getMinutes().toString()
+              : currentDate.getMinutes().toString()
+          }`}</p>
           <p>{city.weather[0].description}</p>
-          <img src={`https://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`}></img>
+          <hr></hr>
+          <Row className="mx-auto text-nowrap" xs={1} md={3}>
+            <Col>
+              <p>weather:</p>
+              <img src={`https://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`}></img>
+              <hr className="d-md-none" />
+            </Col>
+            <Col>
+              <p>💧 humidity: {city.main.humidity}%</p>
+              <hr className="d-md-none" />
+            </Col>
+            <Col>
+              <p>🌡️ {city.main.temp} °C</p>
+              <p>Min: {city.main.temp_min}</p>
+              <p>Max: {city.main.temp_max}</p>
+              <hr className="d-md-none" />
+            </Col>
+          </Row>
         </div>
       ) : (
         <Spinner animation="grow" />
