@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 const Details = () => {
   const { lat, lon } = useParams();
   const [city, setCity] = useState(null);
+  const currentDate = new Date();
   useEffect(() => {
     fetchCity();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -30,6 +31,7 @@ const Details = () => {
       {city ? (
         <div className="text-white text-center">
           <h1 className="fw-bold">{city.name}</h1>
+          <h2>{currentDate.toLocaleDateString}</h2>
           <p>{city.weather[0].description}</p>
           <img src={`https://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`}></img>
         </div>
