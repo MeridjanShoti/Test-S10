@@ -64,7 +64,7 @@ const CityCard = (props) => {
           <Card.Body>
             <Card.Title>{cityInfo.name || "nome città"} </Card.Title>
             <Card.Text>{cityInfo.weather[0].description || "condizioni meteo"}</Card.Text>
-            <Link className="btn btn-info" to={"/details/" + (cityInfo.id || "cityInfo.id")}>
+            <Link className="btn btn-info" to={"/details/" + cityInfo.coord.lat + "/" + cityInfo.coord.lon}>
               Go to details
             </Link>
           </Card.Body>
