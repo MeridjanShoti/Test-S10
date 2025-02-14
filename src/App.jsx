@@ -37,6 +37,9 @@ function App() {
                 <Link className="btn btn-danger text-warning w-25 p-2 mx-auto mt-5" to="/">
                   IMPLORA PIETÁ E TORNA ALLA HOME
                 </Link>
+                <p className="text-center mt-5">
+                  Come? che tempo è? è il tempo di lasciare le tue speranze ed abbracciare le tenebre
+                </p>
               </div>
             }
           />

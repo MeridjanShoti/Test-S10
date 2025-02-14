@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Col, Row, Spinner } from "react-bootstrap";
 import { useParams } from "react-router";
+import DeatailedWeather from "./DetailedWeather";
 
 const Details = () => {
   const { lat, lon } = useParams();
@@ -26,6 +27,7 @@ const Details = () => {
       })
       .catch((error) => console.error("ERRORE:", error));
   };
+
   return (
     <>
       {city ? (
@@ -47,6 +49,8 @@ const Details = () => {
             </Col>
             <Col>
               <p>💧 humidity: {city.main.humidity}%</p>
+              <p>💨 wind: {city.wind.speed}</p>
+              <p></p>
               <hr className="d-md-none" />
             </Col>
             <Col>
@@ -55,6 +59,9 @@ const Details = () => {
               <p>Max: {city.main.temp_max}</p>
               <hr className="d-md-none" />
             </Col>
+          </Row>
+          <Row xs={2} md={3} lg={5} className="justify-content-center mx-4">
+            <DeatailedWeather lat={lat} lon={lon} />
           </Row>
         </div>
       ) : (

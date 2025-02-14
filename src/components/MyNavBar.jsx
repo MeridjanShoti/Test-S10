@@ -1,7 +1,8 @@
 import { Col, Container, Form, Nav, Navbar, Row } from "react-bootstrap";
-import { NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
 import logo from "../assets/Weather.png";
 const MyNavBar = () => {
+  const location = useLocation();
   return (
     <Navbar expand="lg" className="bg-body-transparent">
       <Container>
@@ -11,10 +12,20 @@ const MyNavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav border-1" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto gap-3">
-            <NavLink className="text-white text-decoration-none nav-link" to="/">
+            <NavLink
+              className={`text-white text-decoration-none ${
+                location.pathname === "/" ? "nav-link nav-link-active fw-bold" : "nav-link"
+              }`}
+              to="/"
+            >
               Home
             </NavLink>
-            <NavLink className="text-white text-decoration-none nav-link" to="/bucosenzafondo">
+            <NavLink
+              className={`text-white text-decoration-none ${
+                location.pathname === "/bucosenzafondo" ? "nav-link nav-link-active fw-bold" : "nav-link"
+              }`}
+              to="/bucosenzafondo"
+            >
               Non cliccare qui
             </NavLink>
           </Nav>
