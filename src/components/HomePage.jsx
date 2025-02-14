@@ -1,6 +1,7 @@
 import { Col, Container, Row, Spinner } from "react-bootstrap";
 import CityCard from "./CityCard";
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 const HomePage = () => {
   const [city, setCity] = useState(null);
@@ -33,13 +34,15 @@ const HomePage = () => {
                   <Col xs={1} className="ms-auto">
                     <img src={`https://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`}></img>
                   </Col>
-                  <Col xs={3} className="me-auto">
-                    <p className="fs-1">{city.weather[0].description}</p>
+                  <Col xs={3} className="me-auto d-flex align-items-center">
+                    <p className="fs-1 mb-0">{city.weather[0].description}</p>
                   </Col>
                 </Row>
+                <Link to={"/details/" + city.id}></Link>
                 <Row>
                   <Col>
-                    <p>min</p>
+                    <p>Min: {city.main.temp_min} °C</p>
+                    <p>Max: {city.main.temp_max} °C</p>
                   </Col>
                 </Row>
               </>
