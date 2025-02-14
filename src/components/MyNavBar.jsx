@@ -8,7 +8,7 @@ const MyNavBar = () => {
         <NavLink className="text-decoration-none me-5" to="/">
           <img src={logo} width="30px"></img>
         </NavLink>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav border-1" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto gap-3">
             <NavLink className="text-white text-decoration-none nav-link" to="/">
