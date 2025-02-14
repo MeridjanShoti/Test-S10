@@ -45,6 +45,9 @@ const HomePage = () => {
                     <p>Max: {city.main.temp_max} °C</p>
                   </Col>
                 </Row>
+                <Link className="btn btn-info" to={"/details/" + city.coord.lat + "/" + city.coord.lon}>
+                  Go to Details
+                </Link>
               </>
             ) : (
               <Spinner animation="grow" />
