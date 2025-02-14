@@ -31,11 +31,9 @@ const HomePage = () => {
               <>
                 <h1>{city.name}</h1>
                 <Row>
-                  <Col xs={1} className="ms-auto">
+                  <Col className="d-flex justify-content-center align-items-center mb-2 flex-wrap">
                     <img src={`https://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`}></img>
-                  </Col>
-                  <Col xs={3} className="me-auto d-flex align-items-center">
-                    <p className="fs-1 mb-0">{city.weather[0].description}</p>
+                    <p className="fs-1 mb-0 text-nowrap text-center">{city.weather[0].description}</p>
                   </Col>
                 </Row>
                 <Link to={"/details/" + city.id}></Link>
