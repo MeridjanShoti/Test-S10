@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router";
+import CityCard from "./CityCard";
 
 const Details = () => {
   const { lat, lon } = useParams();
   const [city, setCity] = useState(null);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetchCity();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchCity = () => {
@@ -25,6 +26,16 @@ const Details = () => {
       })
       .catch((error) => console.error("ERRORE:", error));
   };
-  return <>{city ? <h1>{city.name}</h1> : <Spinner animation="grow" />}</>;
+  return (
+    <>
+      {city ? (
+        <div className="text-white text-center">
+          <h1 className="fw-bold">{city.name}</h1>
+        </div>
+      ) : (
+        <Spinner animation="grow" />
+      )}
+    </>
+  );
 };
 export default Details;
