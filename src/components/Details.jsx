@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router";
-import CityCard from "./CityCard";
 
 const Details = () => {
   const { lat, lon } = useParams();
@@ -31,6 +30,8 @@ const Details = () => {
       {city ? (
         <div className="text-white text-center">
           <h1 className="fw-bold">{city.name}</h1>
+          <p>{city.weather[0].description}</p>
+          <img src={`https://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`}></img>
         </div>
       ) : (
         <Spinner animation="grow" />
