@@ -39,6 +39,7 @@ const HomePage = () => {
                 <Link to={"/details/" + city.id}></Link>
                 <Row>
                   <Col>
+                    <p className="fs-2">🌡 {city.main.temp} °C</p>
                     <p>Min: {city.main.temp_min} °C</p>
                     <p>Max: {city.main.temp_max} °C</p>
                   </Col>
