@@ -29,23 +29,30 @@ const DeatailedWeather = (props) => {
         //il risultato fetchato mi da una lista di condizioni meteorologiche per ogni 3 ore nei prossimi 5 giorni
         //filtro ogni 8 risultati per ottenere un solo risultato al giorno e prendo solo 5 risultati
         //renderizzo una card per ogni giorno
-        weatherList
-          .filter((day, index) => index % 8 === 0)
-          .slice(0, 5)
-          .map((day, index) => {
-            return (
-              <Col key={"day-" + index}>
-                <p>{day.dt_txt}</p>
-                <Card>
-                  <Card.Img src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`} />
-                  <Card.Body>
-                    <Card.Title style={{ minHeight: "50px" }}>{day.weather[0].description}</Card.Title>
-                    <Card.Text>{day.main.temp} °C</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            );
-          })
+        weatherList ? (
+          weatherList
+            .filter((day, index) => index % 8 === 0)
+            .slice(0, 5)
+            .map((day, index) => {
+              return (
+                <Col key={"day-" + index}>
+                  <p>{day.dt_txt}</p>
+                  <Card>
+                    <Card.Img src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`} />
+                    <Card.Body>
+                      <Card.Title style={{ minHeight: "50px" }}>{day.weather[0].description}</Card.Title>
+                      <Card.Text>{day.main.temp} °C</Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              );
+            })
+        ) : (
+          <div className="d-flex flex-column">
+            <h1>ERRORE</h1>
+            <p>il reperimento dei dati non è andato a buon fine</p>
+          </div>
+        )
       }
     </>
   );
