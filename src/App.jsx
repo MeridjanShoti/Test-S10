@@ -8,7 +8,7 @@ import Details from "./components/Details";
 function App() {
   return (
     <div
-      className="d-flex flex-column"
+      className="d-flex flex-column position-relative"
       style={{
         background: "linear-gradient(180deg, rgba(107,133,135,1) 0%, rgba(158,247,247,1) 100%)",
         minHeight: "100vh",
@@ -17,8 +17,22 @@ function App() {
       <BrowserRouter>
         <MyNavBar />
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/details/:lat/:lon" element={<Details />} />
+          <Route
+            path="/"
+            element={
+              <div style={{ marginTop: "56px" }}>
+                <HomePage />
+              </div>
+            }
+          />
+          <Route
+            path="/details/:lat/:lon"
+            element={
+              <div style={{ marginTop: "56px" }}>
+                <Details />
+              </div>
+            }
+          />
           <Route
             path="*"
             element={

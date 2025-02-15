@@ -10,7 +10,7 @@ const Details = () => {
   useEffect(() => {
     fetchCity();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [lat, lon]);
 
   const fetchCity = () => {
     fetch(
