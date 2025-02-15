@@ -1,5 +1,5 @@
 import { Col, Container, Form, Nav, Navbar, Row } from "react-bootstrap";
-import { NavLink, useLocation, useNavigate, useParams } from "react-router";
+import { NavLink, useLocation, useNavigate } from "react-router";
 import logo from "../assets/Weather.png";
 import { useEffect, useState } from "react";
 const MyNavBar = () => {
@@ -12,19 +12,24 @@ const MyNavBar = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${searchedCity.toLowerCase()}&appid=32649f31e9a1a6287695f59a3f858bbe`
-    )
-      .then((resp) => resp.json())
-      .then((data) => {
-        if (data) {
-          setCity(data[0]);
-        } else {
-          setCity(null);
-          alert("nessuna città trovata");
-        }
-      })
-      .catch((error) => console.error("ERRORE:", error));
+    if (searchedCity.toLowerCase() !== "gabibbo") {
+      fetch(
+        `http://api.openweathermap.org/geo/1.0/direct?q=${searchedCity.toLowerCase()}&appid=32649f31e9a1a6287695f59a3f858bbe`
+      )
+        .then((resp) => resp.json())
+        .then((data) => {
+          if (data && data.length > 0) {
+            setCity(data[0]);
+          } else {
+            setCity(null);
+            alert("nessuna città trovata");
+          }
+          setSearchedCity("");
+        })
+        .catch((error) => console.error("ERRORE:", error));
+    } else {
+      window.location.href = "https://www.youtube.com/watch?v=-LRYfH3yy6Q";
+    }
   };
   useEffect(() => {
     if (city) {
@@ -69,7 +74,13 @@ const MyNavBar = () => {
               <Form onSubmit={handleSubmit}>
                 <Row>
                   <Col xs="auto">
-                    <Form.Control type="text" placeholder="Cerca città" className=" mr-sm-2" onChange={handleChange} />
+                    <Form.Control
+                      type="text"
+                      placeholder="Cerca città"
+                      className=" mr-sm-2"
+                      onChange={handleChange}
+                      value={searchedCity}
+                    />
                   </Col>
                 </Row>
               </Form>

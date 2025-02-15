@@ -45,15 +45,22 @@ function App() {
                   backgroundSize: "cover",
                   backgroundPosition: "50%, 20%",
                 }}
-                className="d-flex flex-column text-white"
+                className="d-flex flex-column text-white justify-content-between"
               >
-                <h1 className="text-center mt-5">OH OH, SEI FINITO NELLE GRINFIE DEL VILE</h1>
-                <Link className="btn btn-danger text-warning w-25 p-2 mx-auto mt-5" to="/">
-                  IMPLORA PIETÁ E TORNA ALLA HOME
-                </Link>
-                <p className="text-center mt-5">
-                  Come? che tempo è? è il tempo di lasciare le tue speranze ed abbracciare le tenebre
-                </p>
+                <div className="d-flex flex-column">
+                  <h1 className="text-center mt-5">OH OH, SEI FINITO NELLE GRINFIE DEL VILE</h1>
+                  <Link className="btn btn-danger text-warning w-25 p-2 mx-auto mt-5" to="/">
+                    IMPLORA PIETÁ E TORNA ALLA HOME
+                  </Link>
+                  <p className="text-center mt-5">
+                    Come? che tempo è? è il tempo di lasciare le tue speranze ed abbracciare le tenebre
+                  </p>
+                </div>
+                <div>
+                  <p className="text-danger text-center">
+                    Hai per caso visto il gabibbo? cerca &quot;gabibbo&quot; nella searchbar
+                  </p>
+                </div>
               </div>
             }
           />
