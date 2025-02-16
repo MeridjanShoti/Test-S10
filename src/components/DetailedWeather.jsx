@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Card, Col } from "react-bootstrap";
+import { useParams } from "react-router";
 
 const DeatailedWeather = (props) => {
   const [weatherList, setWeatherList] = useState([]);
+  const { lat, lon } = useParams();
   const fetch5Days = () => {
     fetch(
       `https://api.openweathermap.org/data/2.5/forecast?lat=${props.lat}&lon=${props.lon}&units=metric&appid=32649f31e9a1a6287695f59a3f858bbe`
@@ -22,7 +24,7 @@ const DeatailedWeather = (props) => {
   useEffect(() => {
     fetch5Days();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [lat, lon]);
   return (
     <>
       {
